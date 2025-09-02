@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header() {
   return (
     <header>
-        asd
+        Привет я хедер
     </header>
   )
 }
