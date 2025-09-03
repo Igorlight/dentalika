@@ -1,4 +1,5 @@
 import Best from "@/components/Best";
+import OurServices from "@/components/OurServices";
 
 export default function Home() {
   return (
@@ -12,6 +13,9 @@ export default function Home() {
       </section>
       <section className='py-[110px]'>
         <Best />
+      </section>
+      <section className='py-[110px]'>
+        <OurServices />
       </section>
     </div>
   );
