@@ -54,10 +54,10 @@ export default function Staff() {
             </div>
             <Link
               href={item.link}
-              className="text-gray-500 text-center mx-auto flex items-center justify-center gap-2 hover:text-primary transition-all duration-300"
+              className="text-gray-500 text-center mx-auto flex items-center justify-center gap-2 hover:text-primary transition-all duration-300 group"
             >
               <p>Подробнее</p>
-              <ArrowRightIcon className="w-4 h-4" />
+              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300" />
             </Link>
           </div>
           </SwiperSlide>
