@@ -14,10 +14,11 @@ export default function ContactUs() {
         phone: z.string().min(1, {message: 'Номер телефона обязательно'}).max(15, {message: 'Номер телефона должен быть не более 15 символов'}),
         message: z.string().min(1, {message: 'Сообщение обязательно'}).optional(),
     })
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    type TContactUs = z.infer<typeof contactUsSchema>
+    const {register, handleSubmit, formState: {errors}} = useForm<TContactUs>({
         resolver: zodResolver(contactUsSchema)
     })
-    const onSubmit = (data: any) => {
+    const onSubmit = (data: TContactUs) => {
         console.log(data)
     }
   return (
