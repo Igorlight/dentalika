@@ -1,12 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
   images: {
-    unoptimized: true,
+    unoptimized: false,
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/dentalika' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/dentalika' : '',
 };
 
 export default nextConfig;
