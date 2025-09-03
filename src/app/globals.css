@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "swiper/css";
 
 body {
   background: #ffffff;
@@ -79,3 +80,19 @@ body {
   overflow-wrap: break-word;
   word-break: break-all;
 }
+
+/* Swiper стили */
+.swiper {
+  width: 100%;
+  height: auto;
+}
+
+.swiper-slide {
+  object-fit: cover;
+  object-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: auto;
+}
+

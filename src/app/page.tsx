@@ -1,5 +1,6 @@
 import Best from "@/components/Best";
 import OurServices from "@/components/OurServices";
+import Staff from "@/components/Staff";
 
 export default function Home() {
   return (
@@ -15,7 +16,12 @@ export default function Home() {
         <Best />
       </section>
       <section className='py-[110px]'>
+       <h2 className='text-2xl sm:text-3xl md:text-4xl font-semibold uppercase leading-[120%] text-center mb-10'>Наши услуги</h2>
         <OurServices />
+      </section>
+      <section className='py-[110px]'>
+        <h2 className='text-2xl sm:text-3xl md:text-4xl font-semibold uppercase leading-[120%] text-center mb-10'>У нас сильная команда врачей</h2>
+        <Staff />
       </section>
     </div>
   );
