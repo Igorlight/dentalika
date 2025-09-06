@@ -5,7 +5,7 @@ export default function Cadcam() {
   return (
     <div className="grid grid-cols-12 gap-4 items-center">
       <div className="col-span-12 md:col-span-6">
-        <p className="text-lg leading-relaxed">
+        <p className="text-sm md:text-base leading-relaxed">
           Стоматология &quot;Денталика&quot; применяет передовую цифровую технологию
           CAD/CAM для высокоточного и эстетичного зубного протезирования. Мы
           используем немецкое оборудование и материалы, в частности диоксид

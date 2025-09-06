@@ -25,6 +25,7 @@ export default function OurServices() {
               alt={service.name}
               width={884}
               height={589}
+              priority
               className="w-full h-full object-cover"
             />
           </div>

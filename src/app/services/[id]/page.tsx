@@ -50,9 +50,9 @@ export default function ServicePage({ params }: PageProps) {
 
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
-      <div className="py-[50px] md:py-[110px]">
-        <MainTitle title={service.name} className="mb-4 text-center" />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+      <div className="py-[50px] md:py-[80px]">
+        <MainTitle title={service.name} className="mb-9 text-center" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Описание */}
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
@@ -73,7 +73,7 @@ export default function ServicePage({ params }: PageProps) {
         </div>
       </div>
 
-      <div className="py-[50px] md:py-[110px]">
+      <div className="py-[50px] md:py-[80px] max-w-[1000px] mx-auto">
         <SecondTitle title="Стоимость услуги" />
         <ul>
           <li className="grid grid-cols-12 border-y items-center text-sm md:text-base">
