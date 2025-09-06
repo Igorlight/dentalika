@@ -1,11 +1,13 @@
 import Best from "@/components/Best";
 import Cadcam from "@/components/Cadcam";
 import ContactUs from "@/components/ContactUs";
+import Licenses from "@/components/Licenses";
 import OurServices from "@/components/OurServices";
 import Questions from "@/components/Questions";
 import Reviews from "@/components/Reviews";
 import SecondTitle from "@/components/SecondTitle";
 import Team from "@/components/Team";
+import WhyUs from "@/components/WhyUs";
 
 export default function Home() {
   return (
@@ -30,6 +32,10 @@ export default function Home() {
         <OurServices />
       </section>
       <section className='py-[50px] md:py-[80px]'>
+        <SecondTitle title="Почему мы?" />
+        <WhyUs />
+      </section>
+      <section className='py-[50px] md:py-[80px]'>
         <SecondTitle title="Технология CAD/CAM" />
         <Cadcam />
       </section>
@@ -44,6 +50,10 @@ export default function Home() {
       <section className='py-[50px] md:py-[80px]'>
         <SecondTitle title="Вопросы и ответы" />
         <Questions />
+      </section>
+      <section className='py-[50px] md:py-[80px]'>
+        <SecondTitle title="Лицензии и сертификаты" />
+        <Licenses />
       </section>
     </div>
   );
