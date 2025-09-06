@@ -34,7 +34,7 @@ export default function OurServices() {
             <h3 className="lg:text-2xl text-xl font-semibold uppercase leading-[120%] mb-4">
               {service.name}
             </h3>
-            <p className="lg:text-base text-sm mb-4">
+            <p className="lg:text-lg text-sm mb-4">
               {service.description}
             </p>
            </div>

@@ -3,6 +3,14 @@ import { team } from '@/data/team';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
 
 interface PageProps {
   params: {
@@ -50,6 +58,31 @@ export default function TeamMemberPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen pt-20">
+      {/* Breadcrumb */}
+      <div className="bg-white py-4">
+        <div className="max-w-6xl mx-auto px-4">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/">Главная</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/team">Команда</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>{member.name}</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </div>
+
       <div className="max-w-6xl mx-auto px-4 py-8">
         {/* Заголовок */}
         <div className="text-center mb-12">

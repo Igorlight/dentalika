@@ -2,9 +2,18 @@ import React from "react";
 import { services } from "@/data/services";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import SecondTitle from "@/components/SecondTitle";
 import MainTitle from "@/components/MainTitle";
 import ContactUs from "@/components/ContactUs";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface PageProps {
   params: {
@@ -50,6 +59,29 @@ export default function ServicePage({ params }: PageProps) {
 
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
+      {/* Breadcrumb */}
+      <div className="py-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">Главная</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/services">Услуги</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{service.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       <div className="py-[50px] md:py-[80px]">
         <MainTitle title={service.name} className="mb-9 text-center" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">

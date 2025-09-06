@@ -8,6 +8,7 @@ import Reviews from "@/components/Reviews";
 import SecondTitle from "@/components/SecondTitle";
 import Team from "@/components/Team";
 import WhyUs from "@/components/WhyUs";
+import LastNews from "@/components/LastNews";
 
 export default function Home() {
   return (
@@ -46,6 +47,10 @@ export default function Home() {
       <section className='py-[50px] md:py-[80px]'>
         <SecondTitle title="Отзывы наших клиентов" />
         <Reviews />
+      </section>
+      <section className='py-[50px] md:py-[80px]'>
+        <SecondTitle title="Последние новости" />
+        <LastNews />
       </section>
       <section className='py-[50px] md:py-[80px]'>
         <SecondTitle title="Вопросы и ответы" />
