@@ -43,7 +43,7 @@ export default function Header() {
             </Link>
             <ContactUs className="cursor-pointer" />
           </div>
-          <div>
+          <div className="md:hidden">
             <Sheet>
               <SheetTrigger>
                 <MenuIcon className="w-6 h-6 fill-primary" />
