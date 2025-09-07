@@ -81,11 +81,9 @@ export default function ServicePage({ params }: PageProps) {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-
       <div className="py-[50px] md:py-[80px]">
         <MainTitle title={service.name} className="mb-9 text-center" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Описание */}
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
               <p className="leading-relaxed text-lg">{service.description}</p>

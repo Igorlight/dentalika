@@ -23,7 +23,6 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
-      {/* Breadcrumb */}
       <div className="bg-white py-10">
           <Breadcrumb>
             <BreadcrumbList>
@@ -41,11 +40,11 @@ export default function ServicesPage() {
       </div>
       <div>
       <MainTitle title="НАШИ УСЛУГИ" className="mb-10" />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl border  overflow-hidden hover:shadow-xl transition-all duration-300"
             >
               {/* Изображение услуги */}
                 <Image
@@ -56,7 +55,7 @@ export default function ServicesPage() {
                   className="object-cover transition-transform duration-300"
                 />
               {/* Контент услуги */}
-              <div className="p-8">
+              <div className="p-4">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4 transition-colors duration-200">
                   {service.name}
                 </h2>
@@ -69,11 +68,11 @@ export default function ServicesPage() {
                 {/* Ссылка на услугу */}
                 <Link
                   href={service.link}
-                  className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-semibold group/link"
+                  className="inline-flex items-center bg-transparent border px-6 py-3 rounded-lg font-semibold group/link"
                 >
                   Подробнее
                   <svg
-                    className="w-5 h-5 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
+                    className="w-5 h-5 ml-2 group-hover/link:translate-x-1 transition-transform duration-200 group/link"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

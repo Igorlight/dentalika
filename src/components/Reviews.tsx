@@ -63,12 +63,12 @@ export default function Reviews() {
       >
         {reviews.map((review) => (
           <SwiperSlide key={review.id} className="!h-[340px]">
-            <div className="flex flex-col justify-between h-[340px] bg-gray-color p-4 rounded-2xl">
-              <div className="flex-1">
-                <h3 className="font-semibold uppercase leading-[120%] mb-2">{review.name}</h3>
-                <p className="mb-4 line-clamp-8">{review.text}</p>
-              </div>
-              <div className="mt-auto">
+            <div className="flex flex-col h-[340px] border p-4 rounded-2xl">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-2">
+                <h3 className="font-semibold uppercase leading-[120%]">{review.name}</h3>
+                <p className='text-gray-500'>{review.from}</p>
+                </div>
                 <div className="flex items-center gap-2 mb-2">
                   <Star filled={true} />
                   <Star filled={true} />
@@ -76,7 +76,9 @@ export default function Reviews() {
                   <Star filled={true} />
                   <Star filled={true} />
                 </div>
-                <p className='font-semibold'>{review.from}</p>
+              </div>
+              <div>
+                <p className="mb-4 line-clamp-8">{review.text}</p>
               </div>
             </div>
           </SwiperSlide>

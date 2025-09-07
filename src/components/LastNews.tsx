@@ -12,7 +12,7 @@ export default function LastNews() {
         {lastNews.map((article) => (
           <article
             key={article.id}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform"
+            className="border rounded-2xl overflow-hidden"
           >
             {/* Изображение статьи */}
             <div className="relative h-48 overflow-hidden">
@@ -58,16 +58,14 @@ export default function LastNews() {
           </article>
         ))}
       </div>
-
-      {/* Кнопка "Все новости" */}
       <div className="text-center mt-12">
         <Link
           href="/news"
-          className="inline-flex items-center bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-semibold"
+          className="inline-flex items-center bg-transparent border px-8 py-3 rounded-lg font-semibold group"
         >
           Все новости
           <svg
-            className="w-5 h-5 ml-2"
+            className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

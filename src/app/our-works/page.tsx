@@ -36,7 +36,7 @@ export default function Page() {
         <MainTitle title="Примеры работ" className="mb-10" />
         <ul className="grid grid-cols-12 items-center gap-4">
           {works.map((work) => (
-            <li key={work.id} className="col-span-12 md:col-span-6 p-4 border rounded-2xl h-full flex flex-col justify-between">
+            <li key={work.id} className="col-span-12 md:col-span-6 p-4 border rounded-2xl hover:shadow-xl transition-all duration-300 h-full flex flex-col justify-between">
               <div className='flex sm:flex-row flex-col items-center gap-4'>
                 <div className="relative">
                   <Image

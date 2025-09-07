@@ -1,8 +1,8 @@
-import React from 'react';
-import { team } from '@/data/team';
-import { notFound } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { team } from "@/data/team";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -10,7 +10,10 @@ import {
   BreadcrumbLink,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
+} from "@/components/ui/breadcrumb";
+import ContactUs from "@/components/ContactUs";
+import SecondTitle from "@/components/SecondTitle";
+import MainTitle from "@/components/MainTitle";
 
 interface PageProps {
   params: {
@@ -21,20 +24,19 @@ interface PageProps {
 // Генерация статических путей для SEO
 export async function generateStaticParams() {
   return team.map((member) => ({
-    id: member.link.split('/').pop() || member.id.toString(),
+    id: member.link.split("/").pop() || member.id.toString(),
   }));
 }
 
 // Генерация метаданных для SEO
 export async function generateMetadata({ params }: PageProps) {
-  const member = team.find(m => 
-    m.id.toString() === params.id || 
-    m.link === `/team/${params.id}`
+  const member = team.find(
+    (m) => m.id.toString() === params.id || m.link === `/team/${params.id}`
   );
 
   if (!member) {
     return {
-      title: 'Специалист не найден',
+      title: "Специалист не найден",
     };
   }
 
@@ -47,9 +49,8 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default function TeamMemberPage({ params }: PageProps) {
   // Находим специалиста по ID или slug
-  const member = team.find(m => 
-    m.id.toString() === params.id || 
-    m.link === `/team/${params.id}`
+  const member = team.find(
+    (m) => m.id.toString() === params.id || m.link === `/team/${params.id}`
   );
 
   if (!member) {
@@ -57,90 +58,55 @@ export default function TeamMemberPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
-      <div className="bg-white py-4">
-        <div className="max-w-6xl mx-auto px-4">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/">Главная</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/team">Команда</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>{member.name}</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
+      <div className="bg-white py-10">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="text-base">
+                  Главная
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/team" className="text-base">
+                  Команда
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-base">
+                {member.name}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div>
         {/* Заголовок */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            {member.name}
-          </h1>
-          <p className="text-xl text-primary font-medium mb-2">
-            {member.description}
-          </p>
-          <p className="text-gray-600 mb-4">
-            Опыт работы: {member.experience}
-          </p>
-          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-        </div>
-
+        <MainTitle title={member.name} className="mb-12 text-center" />
         {/* Основной контент */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-12 gap-4 items-center">
           {/* Фото специалиста */}
-          <div className="relative">
-            <div className="aspect-square rounded-2xl overflow-hidden shadow-xl">
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            
-            {/* Информация о приеме */}
-            <div className="mt-6 bg-gray-50 rounded-xl p-6">
-              <h3 className="text-lg font-semibold text-gray-800 mb-4">
-                Прием ведется по адресу:
-              </h3>
-              <p className="text-gray-700 font-medium">
-                {member.address}
-              </p>
-              <div className="mt-4 flex gap-3">
-                <Link
-                  href="tel:+79247654991"
-                  className="bg-primary text-white px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
-                >
-                  📞 Записаться
-                </Link>
-                <Link
-                  href="https://wa.me/79247654991"
-                  className="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
-                >
-                  💬 WhatsApp
-                </Link>
-              </div>
-            </div>
+          <div className="col-span-12 md:col-span-6 relative bg-gray-color rounded-2xl">
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={800}
+              height={800}
+              priority
+            />
           </div>
-
           {/* Описание и информация */}
-          <div className="space-y-6">
+          <div className="col-span-12 md:col-span-6">
             {/* О специалисте */}
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none pb-4">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">
                 О специалисте
               </h2>
@@ -156,60 +122,38 @@ export default function TeamMemberPage({ params }: PageProps) {
             </div>
 
             {/* Специализация */}
-            <div className="bg-gray-50 rounded-xl p-6">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Специализация:
-              </h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                  <span>{member.description}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Опыт работы {member.experience}</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Современные методы лечения</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></span>
-                  <span>Индивидуальный подход к каждому пациенту</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Кнопка записи */}
-            <div className="text-center pt-6">
-              <button className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary/90 transition-colors duration-300 shadow-lg hover:shadow-xl">
-                Записаться на прием
-              </button>
+            <div className="py-4 border-t">
+              <p className="text-gray-600 font-semibold mb-2">
+                {member.description}
+              </p>
+              <p className="text-gray-600 font-semibold mb-2">
+                Опыт работы: {member.experience}
+              </p>
+              <ContactUs
+                btnText="Записаться"
+                className="w-full flex bg-transparent text-base h-full text-primary border border-primary rounded-md p-2 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"
+              />
             </div>
           </div>
         </div>
 
         {/* Другие специалисты */}
-        <div className="mt-20">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
-            Наша команда
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="py-[50px] md:py-[80px]">
+          <SecondTitle title="Другие специалисты" />
+          <ul className="grid grid-cols-12 gap-4">
             {team
-              .filter(m => m.id !== member.id)
+              .filter((m) => m.id !== member.id)
               .map((otherMember) => (
-                <div
+                <li
                   key={otherMember.id}
-                  className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                  className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="relative h-64">
                     <Image
                       src={otherMember.image}
                       alt={otherMember.name}
-                      fill
-                      className="object-cover"
+                      width={400}
+                      height={400}
                     />
-                  </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-gray-800 mb-2">
                       {otherMember.name}
@@ -227,9 +171,9 @@ export default function TeamMemberPage({ params }: PageProps) {
                       Подробнее →
                     </a>
                   </div>
-                </div>
+                </li>
               ))}
-          </div>
+          </ul>
         </div>
       </div>
     </div>

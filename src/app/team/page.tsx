@@ -26,80 +26,82 @@ export default function TeamPage() {
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
       <div className="bg-white py-10">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="text-base">
-                    Главная
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-base">Команда</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="text-base">
+                  Главная
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-base">Команда</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       </div>
       <div>
         <MainTitle title="НАША КОМАНДА" className="mb-10" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <ul className="grid grid-cols-12 h-full items-start gap-4 overflow-hidden">
           {team.map((member) => (
-            <div
+            <li
               key={member.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300"
             >
-              {/* Фото специалиста */}
               <Image
                 src={member.image}
                 alt={member.name}
-                width={300}
-                height={300}
+                width={400}
+                height={400}
                 className="object-cover transition-transform duration-300"
               />
-
               {/* Контент специалиста */}
-              <div className="p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2 transition-colors duration-200">
-                  {member.name}
-                </h2>
-                <p className="text-primary font-semibold mb-2">
-                  {member.description}
-                </p>
-                <p className="text-gray-600 mb-4">
-                  Опыт работы: {member.experience}
-                </p>
-                <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
-                  {member.text.length > 150
-                    ? member.text.substring(0, 150) + "..."
-                    : member.text}
-                </p>
-
-                {/* Ссылка на специалиста */}
-                <Link
-                  href={member.link}
-                  className="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors duration-200 font-semibold group/link"
-                >
-                  Подробнее
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
+              <div className="p-4 h-full flex flex-col justify-between">
+                  <div className="flex flex-col gap-2 flex-1">
+                    <h2 className="text-2xl font-bold text-gray-900 transition-colors duration-200">
+                      {member.name}
+                    </h2>
+                    <div>
+                      <p className="text-primary font-semibold">
+                        {member.description}
+                      </p>
+                      <p className="text-gray-600">
+                        Опыт работы: {member.experience}
+                      </p>
+                    </div>
+                    <p className="text-gray-600 leading-relaxed line-clamp-3">
+                      {member.text.length > 150
+                        ? member.text.substring(0, 150) + "..."
+                        : member.text}
+                    </p>
+                  </div>
+                  <div className="mt-auto">
+                    <Link
+                      href={member.link}
+                      className="inline-flex items-center bg-transparent border px-6 py-3 rounded-lg font-semibold group/link"
+                    >
+                      Подробнее
+                      <svg
+                        className="w-5 h-5 ml-2 group-hover/link:translate-x-1 transition-transform duration-200 group/link"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </Link>
+                  </div>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {/* Дополнительная информация */}

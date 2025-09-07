@@ -53,7 +53,7 @@ export default function NewsPage() {
             .map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
+                className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
               >
                 {/* Изображение статьи */}
                 <div className="relative h-64 overflow-hidden">
@@ -78,11 +78,11 @@ export default function NewsPage() {
                   {/* Ссылка на статью */}
                   <Link
                     href={article.link}
-                    className="inline-flex items-center font-semibold transition-colors duration-200 group/link"
+                    className="inline-flex items-center bg-transparent border px-6 py-3 rounded-lg font-semibold group/link"
                   >
                     Читать далее
                     <svg
-                      className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
+                      className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200 group/link"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
