@@ -57,7 +57,7 @@ export default function NewsPage() {
             .map((article) => (
             <article
               key={article.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105 group"
+              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
             >
               {/* Изображение статьи */}
               <div className="relative h-64 overflow-hidden">

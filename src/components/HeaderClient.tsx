@@ -61,6 +61,19 @@ export default function HeaderClient() {
         Команда
       </Link>
       <Link 
+        href="/news" 
+        className={`relative hover:text-primary transition-colors duration-300 ${
+          pathname === "/news" ? "text-primary font-medium" : ""
+        } before:content-[''] before:absolute before:bottom-0 before:left-0 before:h-0.5 before:bg-primary before:transition-all before:duration-300 ${
+          pathname === "/news" 
+            ? "before:w-full" 
+            : "before:w-0 hover:before:w-full"
+        }`}
+        aria-current={pathname === "/news" ? "page" : undefined}
+      >
+        Новости
+      </Link>
+      <Link 
         href="/contacts" 
         className={`relative hover:text-primary transition-colors duration-300 ${
           pathname === "/contacts" ? "text-primary font-medium" : ""
