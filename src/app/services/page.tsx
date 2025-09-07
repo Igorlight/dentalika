@@ -22,35 +22,25 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-[60px]">
+    <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
-      <div className="bg-white py-4">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-10">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Главная</Link>
+                  <Link href="/" className="text-base">Главная</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Услуги</BreadcrumbPage>
+                <BreadcrumbPage className="text-base">Услуги</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </div>
       </div>
-
-      {/* Заголовок страницы */}
-      <div className="bg-white py-[50px] md:py-[80px]">
-        <div className="container mx-auto px-4">
-          <MainTitle title="НАШИ УСЛУГИ" />
-        </div>
-      </div>
-
-      {/* Список всех услуг */}
-      <div className="container mx-auto px-4 py-[50px] md:py-[80px]">
+      <div>
+      <MainTitle title="НАШИ УСЛУГИ" className="mb-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service) => (
             <div

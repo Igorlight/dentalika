@@ -16,92 +16,88 @@ import {
 
 export const metadata = {
   title: "Новости и статьи - Денталика",
-  description: "Актуальные новости стоматологии, полезные статьи о здоровье зубов и современных методах лечения в клинике Денталика в Якутске.",
-  keywords: "новости стоматологии, статьи о зубах, лечение зубов, стоматология Якутск, Денталика",
+  description:
+    "Актуальные новости стоматологии, полезные статьи о здоровье зубов и современных методах лечения в клинике Денталика в Якутске.",
+  keywords:
+    "новости стоматологии, статьи о зубах, лечение зубов, стоматология Якутск, Денталика",
 };
 
 export default function NewsPage() {
   return (
-    <div className="min-h-screen bg-gray-50 pt-[60px]">
+    <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
-      <div className="bg-white py-4">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-10">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Главная</Link>
+                  <Link href="/" className="text-base">
+                    Главная
+                  </Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Новости и статьи</BreadcrumbPage>
+                <BreadcrumbPage className="text-base">
+                  Новости и статьи
+                </BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </div>
       </div>
-
-      {/* Заголовок страницы */}
-      <div className="bg-white py-[50px] md:py-[80px]">
-        <div className="container mx-auto px-4">
-          <MainTitle title="НОВОСТИ И СТАТЬИ" />
-        </div>
-      </div>
-
-      {/* Список всех новостей */}
-      <div className="container mx-auto px-4 py-[50px] md:py-[80px]">
+      <div>
+        <MainTitle title="НОВОСТИ И СТАТЬИ" className="mb-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {news
             .sort((a, b) => b.id - a.id)
             .map((article) => (
-            <article
-              key={article.id}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
-            >
-              {/* Изображение статьи */}
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </div>
+              <article
+                key={article.id}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
+              >
+                {/* Изображение статьи */}
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
 
-              {/* Контент статьи */}
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 transition-colors duration-200">
-                  {article.title}
-                </h2>
-                <p className="text-gray-600 mb-4 line-clamp-3 text-sm md:text-base">
-                  {article.description}
-                </p>
-                
-                {/* Ссылка на статью */}
-                <Link
-                  href={article.link}
-                  className="inline-flex items-center font-semibold transition-colors duration-200 group/link"
-                >
-                  Читать далее
-                  <svg
-                    className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                {/* Контент статьи */}
+                <div className="p-6">
+                  <h2 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 transition-colors duration-200">
+                    {article.title}
+                  </h2>
+                  <p className="text-gray-600 mb-4 line-clamp-3 text-sm md:text-base">
+                    {article.description}
+                  </p>
+
+                  {/* Ссылка на статью */}
+                  <Link
+                    href={article.link}
+                    className="inline-flex items-center font-semibold transition-colors duration-200 group/link"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          ))}
+                    Читать далее
+                    <svg
+                      className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </Link>
+                </div>
+              </article>
+            ))}
         </div>
       </div>
 
@@ -142,10 +138,10 @@ export default function NewsPage() {
                   Нужна консультация?
                 </h3>
                 <p className="text-gray-700 mb-6">
-                  Наши специалисты готовы ответить на все ваши вопросы 
-                  и подобрать оптимальное лечение
+                  Наши специалисты готовы ответить на все ваши вопросы и
+                  подобрать оптимальное лечение
                 </p>
-                <ContactUs 
+                <ContactUs
                   className="w-full"
                   btnText="Записаться на консультацию"
                 />

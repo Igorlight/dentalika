@@ -7,24 +7,22 @@ export default function Page() {
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
-      <div className="bg-white py-4">
-        <div className="container mx-auto px-4">
+      <div className="bg-white py-10">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Главная</Link>
+                  <Link href="/" className="text-base">Главная</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Новости и статьи</BreadcrumbPage>
+                <BreadcrumbPage className="text-base">Новости и статьи</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </div>
       </div>
-      <section className="py-[110px]">
+      <section>
         <MainTitle title="О нас" className="mb-10" />
         <div className="grid grid-cols-2 gap-4">
           <div>
