@@ -2,6 +2,7 @@ import React from "react";
 import { news } from "@/data/news";
 import Image from "next/image";
 import Link from "next/link";
+import MoreBtn from "./MoreBtn";
 
 export default function LastNews() {
   const lastNews = news.sort((a, b) => b.id - a.id).slice(0, 4);
@@ -35,25 +36,7 @@ export default function LastNews() {
               </p>
 
               {/* Ссылка на статью */}
-              <Link
-                href={article.link}
-                className="inline-flex items-center font-semibold transition-colors duration-200 group/link"
-              >
-                Читать далее
-                <svg
-                  className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
+               <MoreBtn href={article.link} text="Читать далее" />
             </div>
           </article>
         ))}

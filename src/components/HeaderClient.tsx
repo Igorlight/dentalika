@@ -40,7 +40,7 @@ export default function HeaderClient({type}: {type: "mobile" | "desktop"}) {
         className={getLinkStyles("/services")}
         aria-current={pathname === "/services" ? "page" : undefined}
       >
-        Услуги
+        Услуги и цены
       </Link>
       <Link 
         href="/team" 

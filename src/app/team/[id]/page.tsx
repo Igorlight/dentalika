@@ -14,6 +14,7 @@ import {
 import ContactUs from "@/components/ContactUs";
 import SecondTitle from "@/components/SecondTitle";
 import MainTitle from "@/components/MainTitle";
+import MoreBtn from "@/components/MoreBtn";
 
 interface PageProps {
   params: {
@@ -107,9 +108,7 @@ export default function TeamMemberPage({ params }: PageProps) {
           <div className="col-span-12 md:col-span-6">
             {/* О специалисте */}
             <div className="prose prose-lg max-w-none pb-4">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                О специалисте
-              </h2>
+              <SecondTitle title="О специалисте" className="mb-0 py-4 md:text-3xl lg:text-4xl" />
               {member.text && member.text !== "пока пусто" ? (
                 <p className="text-gray-700 leading-relaxed text-lg">
                   {member.text}
@@ -164,12 +163,7 @@ export default function TeamMemberPage({ params }: PageProps) {
                     <p className="text-gray-600 text-sm mb-4">
                       Опыт: {otherMember.experience}
                     </p>
-                    <a
-                      href={otherMember.link}
-                      className="inline-block text-primary font-medium hover:underline"
-                    >
-                      Подробнее →
-                    </a>
+                    <MoreBtn href={otherMember.link} />
                   </div>
                 </li>
               ))}

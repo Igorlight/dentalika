@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 import Image from "next/image";
 import ContactUs from "./ContactUs";
 import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { services } from "@/data/services";
 
 export default function OurServices() {
@@ -12,7 +12,7 @@ export default function OurServices() {
       <Tabs defaultValue={services[0].name} className="w-full">
         <TabsList className="w-full mx-auto bg-transparent flex-wrap h-full md:text-base text-sm">
           {services.map((service) => (
-            <TabsTrigger key={service.id} value={service.name} className="cursor-pointer">
+            <TabsTrigger key={service.id} value={service.name} className="cursor-pointer md:text-xl text-base">
               {service.name}
             </TabsTrigger>
           ))}
@@ -42,7 +42,7 @@ export default function OurServices() {
                 <ContactUs btnText="Записаться" className="w-full flex bg-transparent text-base h-full text-primary border border-primary rounded-md p-2 hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer"/>
                 <Link href={service.link} className="text-primary w-full flex items-center justify-center gap-2 border border-primary rounded-md p-2 group">
                 <span>Подробнее</span>
-                <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300" />
+                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300" />
                 </Link>
            </div>
           </div>

@@ -14,6 +14,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { ArrowRightIcon } from "lucide-react";
+import MoreBtn from "@/components/MoreBtn";
 
 interface PageProps {
   params: {
@@ -60,29 +62,35 @@ export default function ServicePage({ params }: PageProps) {
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
-      <div className="py-4">
+      <div className="bg-white py-10">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/">Главная</Link>
+                <Link href="/" className="text-base">
+                  Главная
+                </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
-                <Link href="/services">Услуги</Link>
+                <Link href="/services" className="text-base">
+                  Услуги и цены
+                </Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>{service.name}</BreadcrumbPage>
+              <BreadcrumbPage className="text-base">
+                {service.name}
+              </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <div className="py-[50px] md:py-[80px]">
-        <MainTitle title={service.name} className="mb-9 text-center" />
+      <div className="pb-[50px] md:pb-[80px]">
+        <MainTitle title={service.name} className="mb-12 text-center" />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
             <div className="prose prose-lg max-w-none">
@@ -132,13 +140,13 @@ export default function ServicePage({ params }: PageProps) {
       {/* Дополнительные услуги */}
       <div className="py-[50px] md:py-[110px]">
         <SecondTitle title="Другие услуги" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services
             .filter((s) => s.id !== service.id)
             .map((otherService) => (
               <div
                 key={otherService.id}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 <div className="relative h-48">
                   <Image
@@ -148,19 +156,14 @@ export default function ServicePage({ params }: PageProps) {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">
                     {otherService.name}
                   </h3>
                   <p className="text-gray-600 text-sm line-clamp-3">
                     {otherService.description.substring(0, 120)}...
                   </p>
-                  <a
-                    href={otherService.link}
-                    className="inline-block mt-4 text-primary font-medium hover:underline"
-                  >
-                    Подробнее →
-                  </a>
+                  <MoreBtn href={otherService.link} />
                 </div>
               </div>
             ))}

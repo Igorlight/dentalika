@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import MoreBtn from "@/components/MoreBtn";
 
 export const metadata = {
   title: "Команда - Денталика",
@@ -77,27 +78,7 @@ export default function TeamPage() {
                         : member.text}
                     </p>
                   </div>
-                  <div className="mt-auto">
-                    <Link
-                      href={member.link}
-                      className="inline-flex items-center bg-transparent border px-6 py-3 rounded-lg font-semibold group/link"
-                    >
-                      Подробнее
-                      <svg
-                        className="w-5 h-5 ml-2 group-hover/link:translate-x-1 transition-transform duration-200 group/link"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
+                  <MoreBtn href={member.link} />
               </div>
             </li>
           ))}

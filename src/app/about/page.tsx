@@ -1,5 +1,15 @@
+import Best from "@/components/Best";
+import Licenses from "@/components/Licenses";
 import MainTitle from "@/components/MainTitle";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
+import SecondTitle from "@/components/SecondTitle";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import React from "react";
 
@@ -8,23 +18,27 @@ export default function Page() {
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
       {/* Breadcrumb */}
       <div className="bg-white py-10">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="text-base">Главная</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-base">Новости и статьи</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/" className="text-base">
+                  Главная
+                </Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-base">
+                Новости и статьи
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
       </div>
       <section>
         <MainTitle title="О нас" className="mb-10" />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4 pb-[50px] md:pb-[80px]">
           <div>
             <h2 className="text-xl md:text-2xl font-semibold uppercase leading-[120%] mb-4">
               Основание и философия
@@ -71,22 +85,14 @@ export default function Page() {
               цикла «под ключ».
             </p>
           </div>
-          <div className="col-span-2 text-center">
-            <h2 className="text-xl md:text-2xl font-semibold uppercase leading-[120%] mb-4">
-              Наши ключевые преимущества:
-            </h2>
-            <div className="grid grid-cols-12 gap-4">
-              <div className="col-span-3 ">
-                <div>
-                  <h3 className="font-semibold text-left">ПЕРВЫЕ В ЯКУТИИ</h3>
-                  <p className="text-left">
-                    Пионеры цифровой стоматологии. Успешно работаем по
-                    технологии CAD/CAM полного цикла с 2013 года.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div className="py-[50px] md:py-[80px]">
+          <SecondTitle title="Наши ключевые преимущества" />
+          <Best />
+        </div>
+        <div className="py-[50px] md:py-[80px]">
+          <SecondTitle title="Лицензии и сертификаты" />
+          <Licenses />
         </div>
       </section>
     </div>

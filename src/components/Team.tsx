@@ -10,6 +10,7 @@ import "swiper/css/pagination";
 import Link from "next/link";
 import { ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { team } from "@/data/team";
+import MoreBtn from "./MoreBtn";
 
 
 export default function Team() {
@@ -63,13 +64,7 @@ export default function Team() {
                 <p className="text-gray-500">{item.description}</p>
                 <p className="text-gray-500">Стаж работы: {item.experience}</p>
               </div>
-              <Link
-                href={item.link}
-                className="text-gray-500 text-center mx-auto flex items-center justify-center gap-2 hover:text-primary transition-all duration-300 group"
-              >
-                <p>Подробнее</p>
-                <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-all duration-300" />
-              </Link>
+              <MoreBtn href={item.link} text="Подробнее" />
             </div>
           </SwiperSlide>
         ))}

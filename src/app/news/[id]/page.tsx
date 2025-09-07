@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import MoreBtn from "@/components/MoreBtn";
 
 interface PageProps {
   params: {
@@ -62,34 +63,32 @@ export default function NewsPage({ params }: PageProps) {
     .slice(0, 3);
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-[60px]">
+    <div className="max-w-[1560px] mx-auto pt-[60px]">
       {/* Breadcrumb */}
-      <div className="bg-white py-4">
-        <div className="container mx-auto px-4">
+      <div className="bg-white px-4 py-10">
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/">Главная</Link>
+                  <Link href="/" className="text-base">Главная</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
-                  <Link href="/news">Новости и статьи</Link>
+                  <Link href="/news" className="text-base">Новости и статьи</Link>
                 </BreadcrumbLink>
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>{article.title}</BreadcrumbPage>
+                <BreadcrumbPage className="text-base">{article.title}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
-        </div>
       </div>
 
       {/* Заголовок страницы */}
-      <div className="bg-white py-[50px] md:py-[80px]">
+      <div className="bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto mt-8">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -151,7 +150,7 @@ export default function NewsPage({ params }: PageProps) {
               {otherArticles.map((otherArticle) => (
                 <article
                   key={otherArticle.id}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300"
                 >
                   <div className="relative h-48">
                     <Image
@@ -168,25 +167,7 @@ export default function NewsPage({ params }: PageProps) {
                     <p className="text-gray-600 mb-4 line-clamp-3 text-base md:text-lg">
                       {otherArticle.description}
                     </p>
-                    <a
-                      href={otherArticle.link}
-                      className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
-                    >
-                      Читать далее
-                      <svg
-                        className="w-4 h-4 ml-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </a>
+                    <MoreBtn href={otherArticle.link} text="Читать далее" />
                   </div>
                 </article>
               ))}

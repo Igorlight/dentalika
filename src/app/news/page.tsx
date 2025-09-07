@@ -13,6 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import MoreBtn from "@/components/MoreBtn";
 
 export const metadata = {
   title: "Новости и статьи - Денталика",
@@ -53,7 +54,7 @@ export default function NewsPage() {
             .map((article) => (
               <article
                 key={article.id}
-                className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300 transform group"
+                className="bg-white rounded-2xl border overflow-hidden hover:shadow-xl transition-all duration-300"
               >
                 {/* Изображение статьи */}
                 <div className="relative h-64 overflow-hidden">
@@ -61,7 +62,7 @@ export default function NewsPage() {
                     src={article.image}
                     alt={article.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
@@ -76,25 +77,7 @@ export default function NewsPage() {
                   </p>
 
                   {/* Ссылка на статью */}
-                  <Link
-                    href={article.link}
-                    className="inline-flex items-center bg-transparent border px-6 py-3 rounded-lg font-semibold group/link"
-                  >
-                    Читать далее
-                    <svg
-                      className="w-4 h-4 ml-2 group-hover/link:translate-x-1 transition-transform duration-200 group/link"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Link>
+                  <MoreBtn href={article.link} text="Читать далее" />
                 </div>
               </article>
             ))}
