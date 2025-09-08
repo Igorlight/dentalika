@@ -1,6 +1,5 @@
 import Best from "@/components/Best";
 import Cadcam from "@/components/Cadcam";
-import ContactUs from "@/components/ContactUs";
 import Licenses from "@/components/Licenses";
 import OurServices from "@/components/OurServices";
 import Questions from "@/components/Questions";
@@ -9,23 +8,28 @@ import SecondTitle from "@/components/SecondTitle";
 import Team from "@/components/Team";
 import WhyUs from "@/components/WhyUs";
 import LastNews from "@/components/LastNews";
+import HeroSlider from "@/components/HeroSlider";
+import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
     <div className="max-w-[1560px] mx-auto px-4 pt-[60px]">
-      <section className='grid grid-cols-12 gap-2 md:gap-4 items-center py-[50px] md:py-[80px]'>
-        <div className='col-span-12 md:col-span-7 order-2 md:order-1'>
-         <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold uppercase leading-[120%] mb-4'>За 15 лет работы<br/>клиники мы Сделали<br/>более 10 000 красивых улыбок</h2>
-         <ContactUs />
+      <section className='py-[50px] md:py-[80px]'>
+        <div className='grid grid-cols-12 gap-2 md:gap-4 items-center mb-8'>
+        <div className='col-span-12 lg:col-span-7'>
+         <h1 className='text-gray-500 text-base md:text-xl'>Сеть стоматологических клиник &quot;Денталика&quot; в г.Якутске</h1>
+         <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold uppercase leading-[120%] mb-4'>За 15 лет работы<br/>клиники мы Сделали<br/>более 10 000 красивых улыбок</h2>
         </div>
-        <div className='col-span-12 order-1 md:order-2 md:col-span-5'>
-            <h1 className='text-gray-500 text-base md:text-xl'>Сеть стоматологических клиник &quot;Денталика&quot; в г.Якутске</h1>
+        <div className='col-span-12 lg:col-span-5'>
+          <ContactSection className='bg-gray-color text-primary p-4 sm:p-8 text-center sm:text-left'/>
         </div>
-        <div className='col-span-12 grid grid-cols-12 gap-4'>
-           
+        </div>
+        <div>
+           <HeroSlider />
         </div>
       </section>
       <section className='py-[50px] md:py-[80px]'>
+        <SecondTitle title="Преимущества" />
         <Best />
       </section>
       <section className='py-[50px] md:py-[80px]'>

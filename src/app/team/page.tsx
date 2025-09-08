@@ -3,8 +3,6 @@ import { team } from "@/data/team";
 import Image from "next/image";
 import Link from "next/link";
 import MainTitle from "@/components/MainTitle";
-import SecondTitle from "@/components/SecondTitle";
-import ContactUs from "@/components/ContactUs";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -14,6 +12,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import MoreBtn from "@/components/MoreBtn";
+import ContactSection from "@/components/ContactSection";
 
 export const metadata = {
   title: "Команда - Денталика",
@@ -84,112 +83,9 @@ export default function TeamPage() {
           ))}
         </ul>
       </div>
-
-      {/* Дополнительная информация */}
-      <div className="bg-white py-[50px] md:py-[80px]">
-        <div className="container mx-auto px-4">
-          <SecondTitle title="ПОЧЕМУ ВЫБИРАЮТ НАС" />
-          <div className="max-w-4xl mx-auto mt-12">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Преимущество 1 */}
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-8 h-8 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Опытные специалисты
-                </h3>
-                <p className="text-gray-600">
-                  Средний стаж наших врачей — 18 лет, и даже у нашего самого
-                  молодого доктора за плечами более 11 лет успешной практики
-                </p>
-              </div>
-
-              {/* Преимущество 2 */}
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-8 h-8 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Постоянное развитие
-                </h3>
-                <p className="text-gray-600">
-                  Мы постоянно повышаем квалификацию, чтобы предлагать вам самые
-                  современные и эффективные методы лечения
-                </p>
-              </div>
-
-              {/* Преимущество 3 */}
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg
-                    className="w-8 h-8 text-blue-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  Индивидуальный подход
-                </h3>
-                <p className="text-gray-600">
-                  Каждый пациент получает персональное внимание и лечение,
-                  разработанное с учетом его индивидуальных потребностей
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Блок с контактами */}
-      <div className="bg-gray-50 py-[50px] md:py-[80px]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">
-              Готовы записаться на прием?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Наши специалисты готовы ответить на все ваши вопросы и подобрать
-              оптимальное лечение
-            </p>
-            <ContactUs
-              className="inline-block"
-              btnText="Записаться на консультацию"
-            />
-          </div>
-        </div>
+      <div className="py-[50px] md:py-[80px]">
+        <ContactSection className="max-w-[1200px] mx-auto" titleClassName="lg:text-4xl sm:text-3xl text-2xl text-center sm:text-left" descriptionClassName="text-white text-center sm:text-left" btnClassName="text-primary bg-white"/>
       </div>
     </div>
   );

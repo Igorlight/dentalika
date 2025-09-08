@@ -14,8 +14,8 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ArrowRightIcon } from "lucide-react";
 import MoreBtn from "@/components/MoreBtn";
+import ContactSection from "@/components/ContactSection";
 
 interface PageProps {
   params: {
@@ -168,6 +168,10 @@ export default function ServicePage({ params }: PageProps) {
               </div>
             ))}
         </div>
+      </div>
+      {/* Блок с контактами */}
+      <div className="py-[50px] md:py-[80px]">
+        <ContactSection className="max-w-[1200px] mx-auto" titleClassName="lg:text-4xl sm:text-3xl text-2xl text-center sm:text-left" descriptionClassName="text-white text-center sm:text-left" btnClassName="text-primary bg-white"/>
       </div>
     </div>
   );

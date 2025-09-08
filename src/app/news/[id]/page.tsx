@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import SecondTitle from "@/components/SecondTitle";
-import ContactUs from "@/components/ContactUs";
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -14,6 +13,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import MoreBtn from "@/components/MoreBtn";
+import ContactSection from "@/components/ContactSection";
 
 interface PageProps {
   params: {
@@ -130,14 +130,6 @@ export default function NewsPage({ params }: PageProps) {
               </div>
             ))}
           </div>
-
-          {/* Кнопка записи на прием */}
-          <div className="mt-16 text-center">
-            <ContactUs 
-              className="inline-block"
-              btnText="Записаться на консультацию"
-            />
-          </div>
         </div>
       </div>
 
@@ -175,6 +167,10 @@ export default function NewsPage({ params }: PageProps) {
           </div>
         </div>
       )}
+      {/* Блок с контактами */}
+      <div className="py-[50px] md:py-[80px]">
+        <ContactSection className="max-w-[1200px] mx-auto" titleClassName="lg:text-4xl sm:text-3xl text-2xl text-center sm:text-left" descriptionClassName="text-white text-center sm:text-left" btnClassName="text-primary bg-white"/>
+      </div>
     </div>
   );
 }

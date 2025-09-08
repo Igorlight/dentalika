@@ -23,7 +23,9 @@ export default function Page() {
       </div>
       <div>
         <MainTitle title="КОНТАКТЫ" className="mb-10" />
-   
+       <div>
+        
+       </div>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import Best from "@/components/Best";
+import ContactSection from "@/components/ContactSection";
 import Licenses from "@/components/Licenses";
 import MainTitle from "@/components/MainTitle";
 import SecondTitle from "@/components/SecondTitle";
@@ -93,6 +94,15 @@ export default function Page() {
         <div className="py-[50px] md:py-[80px]">
           <SecondTitle title="Лицензии и сертификаты" />
           <Licenses />
+        </div>
+        {/* Блок с контактами */}
+        <div className="py-[50px] md:py-[80px]">
+          <ContactSection
+            className="max-w-[1200px] mx-auto"
+            titleClassName="lg:text-4xl sm:text-3xl text-2xl text-center sm:text-left"
+            descriptionClassName="text-white text-center sm:text-left"
+            btnClassName="text-primary bg-white"
+          />
         </div>
       </section>
     </div>
